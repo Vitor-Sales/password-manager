@@ -6,6 +6,8 @@ function Form() {
   const [loginValue, setLoginValue] = useState('');
   const [URLValue, setURLValue] = useState('');
   const [passwordValue, setPasswordValue] = useState('');
+  const invalidPassword = 'invalid-password-check';
+  const validPassword = 'valid-password-check';
 
   function handleLoginChange(event: React.ChangeEvent<HTMLInputElement>) {
     setLoginValue(event.target.value.trim());
@@ -30,28 +32,28 @@ function Form() {
             <p>A senha deve:</p>
             <ul className="password-requirements">
               <li
-                className={ passwordValue.length < 8 ? 'invalid-password-check'
-                  : 'valid-password-check' }
+                className={ passwordValue.length < 8 ? invalidPassword
+                  : validPassword }
               >
                 Possuir 8 ou mais caracteres
               </li>
               <li
-                className={ passwordValue.length > 16 ? 'invalid-password-check'
-                  : 'valid-password-check' }
+                className={ passwordValue.length > 16 ? invalidPassword
+                  : validPassword }
               >
                 Possuir até 16 caracteres
 
               </li>
               <li
-                className={ !/(?=.*[a-zA-Z])(?=.*\d)/.test(passwordValue) ? 'invalid-password-check'
-                  : 'valid-password-check' }
+                className={ !/(?=.*[a-zA-Z])(?=.*\d)/.test(passwordValue) ? invalidPassword
+                  : validPassword }
               >
                 Possuir letras e números
 
               </li>
               <li
-                className={ !/(?=.*[\W_])/.test(passwordValue) ? 'invalid-password-check'
-                  : 'valid-password-check' }
+                className={ !/(?=.*[\W_])/.test(passwordValue) ? invalidPassword
+                  : validPassword }
               >
                 Possuir algum caractere especial
 
