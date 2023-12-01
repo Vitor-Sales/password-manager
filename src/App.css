@@ -80,4 +80,11 @@ button:hover {
   margin-left: 5px;
 }
 
+.card-service {
+  background-color: var(--color-5-anti-flash-white);
+  color: var(--color-1-background-onyx);
+  margin: 15px 15%;
+  padding: 10px;
+  border-radius: 10px;
+}
 

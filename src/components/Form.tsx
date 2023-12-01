@@ -1,13 +1,20 @@
 import { useState } from 'react';
+import Register from './Register';
+import { ServiceProps } from './Type';
 
 function Form() {
-  const [isShown, setIsShown] = useState(true);
+  const [isShown, setIsShown] = useState(true); // Estado para mostrar botão ou form
+  // Estados para salvarem valores
   const [nameValue, setNameValue] = useState('');
   const [loginValue, setLoginValue] = useState('');
   const [URLValue, setURLValue] = useState('');
   const [passwordValue, setPasswordValue] = useState('');
+  // const [idValue, setIdValue] = useState
+  // Constantes para validação do password
   const invalidPassword = 'invalid-password-check';
   const validPassword = 'valid-password-check';
+  // Estado para controlar array dos objetos de Seviços
+  const [services, setServices] = useState<ServiceProps[]>([]);
 
   function handleLoginChange(event: React.ChangeEvent<HTMLInputElement>) {
     setLoginValue(event.target.value.trim());
@@ -22,6 +29,18 @@ function Form() {
     const result = /(?=.*[a-zA-Z])(?=.*\d)(?=.*[\W_]).*/.test(passwordValue);
     return passwordValue.length < 8 || passwordValue.length > 16 || !result;
     //
+  }
+
+  function handleCadastrarClick() {
+    // let id = 0;
+    setIsShown(true);
+    setServices([...services, {
+      name: nameValue,
+      login: loginValue,
+      password: passwordValue,
+      URL: URLValue,
+      id: services.length + 1 },
+    ]);
   }
 
   return (
@@ -91,6 +110,7 @@ function Form() {
                 disabled={ validatePassword()
                     || loginValue.length === 0
                     || nameValue.length === 0 }
+                onClick={ handleCadastrarClick }
               >
                 Cadastrar
               </button>
@@ -109,6 +129,13 @@ function Form() {
       {isShown && (
         <button onClick={ () => setIsShown(false) }>Cadastrar nova senha</button>
       )}
+      {services.length === 0 && <p>nenhuma senha cadastrada</p>}
+      {services
+        .map((service, index) => (<Register
+          key={ index }
+          { ...service }
+          services={ services }
+        />))}
     </div>
 
   );
