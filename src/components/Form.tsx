@@ -14,7 +14,7 @@ function Form() {
   const invalidPassword = 'invalid-password-check';
   const validPassword = 'valid-password-check';
   // Estado para controlar array dos objetos de Seviços
-  const [services, setServices] = useState<ServiceProps[]>([]);
+  const [services, setServices] = useState<ServiceProps['service'][]>([]);
 
   function handleLoginChange(event: React.ChangeEvent<HTMLInputElement>) {
     setLoginValue(event.target.value.trim());
@@ -34,6 +34,10 @@ function Form() {
   function handleCadastrarClick() {
     // let id = 0;
     setIsShown(true);
+    setLoginValue('');
+    setNameValue('');
+    setPasswordValue('');
+    setURLValue('');
     setServices([...services, {
       name: nameValue,
       login: loginValue,
@@ -42,6 +46,11 @@ function Form() {
       id: services.length + 1 },
     ]);
   }
+
+  const removeServiceCard = (serviceName: string) => {
+    const newServices = services.filter((service) => service.name !== serviceName);
+    setServices(newServices);
+  };
 
   return (
     <div>
@@ -133,8 +142,8 @@ function Form() {
       {services
         .map((service, index) => (<Register
           key={ index }
-          { ...service }
-          services={ services }
+          service={ { ...service } }
+          removeCard={ removeServiceCard }
         />))}
     </div>
 
