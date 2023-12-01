@@ -1,3 +1,17 @@
+:root {
+  --color-1-background-onyx: #36393B;
+  --color-2-asparagus: #60993E;
+  --color-3-sandy-brown: #EE964B;
+  --color-4-engineering-orange: #B80C09;
+  --color-5-anti-flash-white: #EFEFEF;
+  
+}
+
+* {
+  padding: 0;
+  border: 0;
+}
+
 .valid-password-check {
   color: #aeffb6;
 }
@@ -5,3 +19,65 @@
 .invalid-password-check {
   color: #f58989;
 }
+
+body {
+  background-color: var(--color-1-background-onyx);
+  color: var(--color-5-anti-flash-white);
+  text-align: center;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--color-5-anti-flash-white);
+  color: var(--color-1-background-onyx);
+  width: 70%;
+  margin: 0 auto;
+  padding: 30px;
+  border-radius: 10px;
+}
+
+.form input {
+  margin-bottom: 10px;
+  width:250px;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid var(--color-1-background-onyx);
+}
+
+.password-requirements {
+  list-style-type: none;
+}
+
+.password-requirements li {
+ font-size: .8rem;
+}
+
+button {
+  padding: 5px;
+  border-radius: 5px;
+  font-size: 600;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: var(--color-1-background-onyx);
+  color: var(--color-5-anti-flash-white);
+  border: 1px solid var(--color-5-anti-flash-white);
+}
+
+.btn-register {
+  background-color: var(--color-2-asparagus);
+  color: var(--color-5-anti-flash-white);
+  margin-right: 5px;
+  margin-top: 20px;
+}
+
+.btn-cancel {
+  background-color: var(--color-3-sandy-brown);
+  color: var(--color-5-anti-flash-white);
+  margin-left: 5px;
+}
+
+
