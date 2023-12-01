@@ -1,15 +1,19 @@
 :root {
-  --color-1-background-onyx: #36393B;
-  --color-2-asparagus: #60993E;
-  --color-3-sandy-brown: #EE964B;
-  --color-4-engineering-orange: #B80C09;
-  --color-5-anti-flash-white: #EFEFEF;
-  
+
+  --color-1-background-onyx: #36393b;
+
+  --color-2-asparagus: #60993e;
+
+  --color-3-sandy-brown: #ee964b;
+
+  --color-4-engineering-orange: #b80c09;
+
+  --color-5-anti-flash-white: #efefef;
 }
 
 * {
-  padding: 0;
   border: 0;
+  padding: 0;
 }
 
 .valid-password-check {
@@ -27,23 +31,23 @@ body {
 }
 
 .form {
-  display: flex;
-  flex-direction: column;
   align-items: center;
   background-color: var(--color-5-anti-flash-white);
+  border-radius: 10px;
   color: var(--color-1-background-onyx);
-  width: 70%;
+  display: flex;
+  flex-direction: column;
   margin: 0 auto;
   padding: 30px;
-  border-radius: 10px;
+  width: 70%;
 }
 
 .form input {
-  margin-bottom: 10px;
-  width:250px;
-  padding: 5px;
-  border-radius: 5px;
   border: 1px solid var(--color-1-background-onyx);
+  border-radius: 5px;
+  margin-bottom: 10px;
+  padding: 5px;
+  width: 250px;
 }
 
 .password-requirements {
@@ -51,20 +55,20 @@ body {
 }
 
 .password-requirements li {
- font-size: .8rem;
+  font-size: 0.8rem;
 }
 
 button {
-  padding: 5px;
   border-radius: 5px;
-  font-size: 600;
   cursor: pointer;
+  font-size: 600;
+  padding: 5px;
 }
 
 button:hover {
   background-color: var(--color-1-background-onyx);
-  color: var(--color-5-anti-flash-white);
   border: 1px solid var(--color-5-anti-flash-white);
+  color: var(--color-5-anti-flash-white);
 }
 
 .btn-register {
@@ -82,9 +86,9 @@ button:hover {
 
 .card-service {
   background-color: var(--color-5-anti-flash-white);
+  border-radius: 10px;
   color: var(--color-1-background-onyx);
   margin: 15px 15%;
   padding: 10px;
-  border-radius: 10px;
 }
 
